@@ -27,7 +27,7 @@ function Users() {
         display: "flex",
         flexDirection: "row",
         flexWrap: "wrap",
-        gap: "35px",
+        gap: "5px",
         justifyContent: "center",
       }}
     >
