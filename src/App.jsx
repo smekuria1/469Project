@@ -1,21 +1,26 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./components/Home/Home";
-import Users from "./components/Users/Users";
-import Navigation from "./components/Navigation/Navigation";
-import About from "./components/About/About";
+import Users from "./components/Users";
+import Home from "./components/Home";
+import About from "./components/About";
+import Navigation from "./components/Navigation";
 import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
+  let route;
+  switch (window.location.pathname) {
+    case "/Users":
+      route = <Users />;
+      break;
+    case "/About":
+      route = <About />;
+      break;
+    default:
+      route = <Home />;
+  }
+
   return (
     <div className="App">
-      <Router>
-        <Navigation />
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/users" element={<Users />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </Router>
+      <Navigation></Navigation>
+      {route}
     </div>
   );
 }
